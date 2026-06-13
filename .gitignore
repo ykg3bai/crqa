@@ -1,0 +1,6 @@
+/target
+/build
+
+# Local secrets and generated scratch files
+.env
+.env.*

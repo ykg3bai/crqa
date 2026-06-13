@@ -1,0 +1,757 @@
+files:
+- path: examples/cases/c_clean.c
+  language: c
+  line_count: 19
+  issues: []
+- path: examples/cases/c_control_flow_bad.c
+  language: c
+  line_count: 24
+  issues:
+  - file: examples/cases/c_control_flow_bad.c
+    line: 4
+    severity: error
+    rule: function-brace-newline
+    language: c
+    message: 函数定义的首个左花括号应另起一行
+  - file: examples/cases/c_control_flow_bad.c
+    line: 4
+    severity: error
+    rule: void-main-signature
+    language: c
+    message: 建议将 void main() 改为 int main(void)
+  - file: examples/cases/c_control_flow_bad.c
+    line: 8
+    severity: error
+    rule: assignment-in-condition
+    language: c
+    message: 条件表达式中疑似误用赋值运算符 =，请确认是否应为 ==
+  - file: examples/cases/c_control_flow_bad.c
+    line: 8
+    severity: error
+    rule: control-keyword-space
+    language: c
+    message: if 语句后缺少空格，建议写成 `if (...)`
+  - file: examples/cases/c_control_flow_bad.c
+    line: 8
+    severity: error
+    rule: empty-control-statement
+    language: c
+    message: if 语句后不应出现空语句分号
+  - file: examples/cases/c_control_flow_bad.c
+    line: 9
+    severity: error
+    rule: equality-as-statement
+    language: c
+    message: 独立语句中出现 ==，疑似将赋值 = 误写为比较 ==
+  - file: examples/cases/c_control_flow_bad.c
+    line: 2
+    severity: warning
+    rule: unused-include
+    language: c
+    message: 头文件 'math.h' 可能未被使用
+  - file: examples/cases/c_control_flow_bad.c
+    line: 5
+    severity: warning
+    rule: unused-variable
+    language: c
+    message: 变量 'unused' 定义后未使用
+  - file: examples/cases/c_control_flow_bad.c
+    line: 11
+    severity: warning
+    rule: single-line-for-braces
+    language: c
+    message: 单行 for 循环不应使用花括号
+  - file: examples/cases/c_control_flow_bad.c
+    line: 17
+    severity: warning
+    rule: deep-nesting
+    language: c
+    message: 嵌套深度超过 4 层，建议重构
+- path: examples/cases/c_missing_guard.h
+  language: c
+  line_count: 5
+  issues:
+  - file: examples/cases/c_missing_guard.h
+    line: 1
+    severity: warning
+    rule: c-header-guard
+    language: c
+    message: '头文件缺少 #pragma once 或传统 include guard，容易被重复包含'
+- path: examples/cases/c_mixed_risk_bad.c
+  language: c
+  line_count: 12
+  issues:
+  - file: examples/cases/c_mixed_risk_bad.c
+    line: 5
+    severity: error
+    rule: function-brace-newline
+    language: c
+    message: 函数定义的首个左花括号应另起一行
+  - file: examples/cases/c_mixed_risk_bad.c
+    line: 5
+    severity: error
+    rule: void-main-signature
+    language: c
+    message: 建议将 void main() 改为 int main(void)
+  - file: examples/cases/c_mixed_risk_bad.c
+    line: 8
+    severity: error
+    rule: assignment-in-condition
+    language: c
+    message: 条件表达式中疑似误用赋值运算符 =，请确认是否应为 ==
+  - file: examples/cases/c_mixed_risk_bad.c
+    line: 8
+    severity: error
+    rule: control-keyword-space
+    language: c
+    message: if 语句后缺少空格，建议写成 `if (...)`
+  - file: examples/cases/c_mixed_risk_bad.c
+    line: 8
+    severity: error
+    rule: empty-control-statement
+    language: c
+    message: if 语句后不应出现空语句分号
+  - file: examples/cases/c_mixed_risk_bad.c
+    line: 9
+    severity: warning
+    rule: c-dangerous-api
+    language: c
+    message: 检测到危险 C API `strcpy`，建议使用带长度限制或可检查错误的替代方案
+  - file: examples/cases/c_mixed_risk_bad.c
+    line: 10
+    severity: warning
+    rule: c-alloc-without-free
+    language: c
+    message: 文件中检测到 malloc/calloc/realloc 但未看到 free，建议检查所有权和释放路径
+  - file: examples/cases/c_mixed_risk_bad.c
+    line: 10
+    severity: warning
+    rule: c-unchecked-resource
+    language: c
+    message: 疑似直接调用资源/内存 API 且未保存返回值，建议检查失败路径和释放路径
+- path: examples/cases/c_resource_macro_bad.c
+  language: c
+  line_count: 23
+  issues:
+  - file: examples/cases/c_resource_macro_bad.c
+    line: 5
+    severity: warning
+    rule: c-macro-safety
+    language: c
+    message: 函数式宏包含语句块但未使用 do { ... } while (0) 包裹，调用方容易踩坑
+  - file: examples/cases/c_resource_macro_bad.c
+    line: 12
+    severity: warning
+    rule: c-dangerous-api
+    language: c
+    message: 检测到危险 C API `scanf`，建议使用带长度限制或可检查错误的替代方案
+  - file: examples/cases/c_resource_macro_bad.c
+    line: 13
+    severity: warning
+    rule: c-dangerous-api
+    language: c
+    message: 检测到危险 C API `strcpy`，建议使用带长度限制或可检查错误的替代方案
+  - file: examples/cases/c_resource_macro_bad.c
+    line: 14
+    severity: warning
+    rule: c-alloc-without-free
+    language: c
+    message: 文件中检测到 malloc/calloc/realloc 但未看到 free，建议检查所有权和释放路径
+  - file: examples/cases/c_resource_macro_bad.c
+    line: 14
+    severity: warning
+    rule: c-unchecked-resource
+    language: c
+    message: 疑似直接调用资源/内存 API 且未保存返回值，建议检查失败路径和释放路径
+  - file: examples/cases/c_resource_macro_bad.c
+    line: 17
+    severity: warning
+    rule: c-goto-usage
+    language: c
+    message: 检测到 goto，建议确认控制流是否可以用早返回、循环状态或小函数表达
+- path: examples/cases/cpp_clean.cpp
+  language: cpp
+  line_count: 15
+  issues: []
+- path: examples/cases/cpp_exceptions_casts_bad.cpp
+  language: cpp
+  line_count: 26
+  issues:
+  - file: examples/cases/cpp_exceptions_casts_bad.cpp
+    line: 13
+    severity: warning
+    rule: deep-nesting
+    language: cpp
+    message: 嵌套深度超过 4 层，建议重构
+  - file: examples/cases/cpp_exceptions_casts_bad.cpp
+    line: 21
+    severity: warning
+    rule: cpp-catch-all
+    language: cpp
+    message: 检测到 catch (...)，建议只捕获明确异常类型并保留错误上下文
+  - file: examples/cases/cpp_exceptions_casts_bad.cpp
+    line: 5
+    severity: info
+    rule: cpp-null-literal
+    language: cpp
+    message: 检测到 NULL，现代 C++ 建议使用 nullptr 表达空指针
+  - file: examples/cases/cpp_exceptions_casts_bad.cpp
+    line: 6
+    severity: info
+    rule: cpp-c-style-cast
+    language: cpp
+    message: 检测到疑似 C 风格强转，建议使用 static_cast/reinterpret_cast/const_cast 表达意图
+  - file: examples/cases/cpp_exceptions_casts_bad.cpp
+    line: 14
+    severity: info
+    rule: cpp-std-endl
+    language: cpp
+    message: 检测到 endl，若不需要强制刷新缓冲区，建议使用 '\n'
+  - file: examples/cases/cpp_exceptions_casts_bad.cpp
+    line: 22
+    severity: info
+    rule: cpp-std-endl
+    language: cpp
+    message: 检测到 endl，若不需要强制刷新缓冲区，建议使用 '\n'
+- path: examples/cases/cpp_false_positive_clean.cpp
+  language: cpp
+  line_count: 8
+  issues: []
+- path: examples/cases/cpp_raw_namespace_bad.hpp
+  language: cpp
+  line_count: 15
+  issues:
+  - file: examples/cases/cpp_raw_namespace_bad.hpp
+    line: 10
+    severity: error
+    rule: assignment-in-condition
+    language: cpp
+    message: 条件表达式中疑似误用赋值运算符 =，请确认是否应为 ==
+  - file: examples/cases/cpp_raw_namespace_bad.hpp
+    line: 10
+    severity: error
+    rule: control-keyword-space
+    language: cpp
+    message: if 语句后缺少空格，建议写成 `if (...)`
+  - file: examples/cases/cpp_raw_namespace_bad.hpp
+    line: 10
+    severity: error
+    rule: empty-control-statement
+    language: cpp
+    message: if 语句后不应出现空语句分号
+  - file: examples/cases/cpp_raw_namespace_bad.hpp
+    line: 3
+    severity: warning
+    rule: cpp-header-using-namespace
+    language: cpp
+    message: 头文件中不应使用 using namespace，容易污染包含方命名空间
+  - file: examples/cases/cpp_raw_namespace_bad.hpp
+    line: 7
+    severity: warning
+    rule: cpp-raw-new-delete
+    language: cpp
+    message: 检测到裸 new/delete，建议优先使用 RAII、智能指针或容器
+  - file: examples/cases/cpp_raw_namespace_bad.hpp
+    line: 10
+    severity: warning
+    rule: cpp-raw-new-delete
+    language: cpp
+    message: 检测到裸 new/delete，建议优先使用 RAII、智能指针或容器
+  - file: examples/cases/cpp_raw_namespace_bad.hpp
+    line: 13
+    severity: warning
+    rule: cpp-raw-new-delete
+    language: cpp
+    message: 检测到裸 new/delete，建议优先使用 RAII、智能指针或容器
+  - file: examples/cases/cpp_raw_namespace_bad.hpp
+    line: 3
+    severity: info
+    rule: cpp-using-namespace
+    language: cpp
+    message: 检测到 using namespace，建议缩小作用域或使用显式命名空间
+  - file: examples/cases/cpp_raw_namespace_bad.hpp
+    line: 8
+    severity: info
+    rule: cpp-c-style-cast
+    language: cpp
+    message: 检测到疑似 C 风格强转，建议使用 static_cast/reinterpret_cast/const_cast 表达意图
+  - file: examples/cases/cpp_raw_namespace_bad.hpp
+    line: 12
+    severity: info
+    rule: cpp-std-endl
+    language: cpp
+    message: 检测到 endl，若不需要强制刷新缓冲区，建议使用 '\n'
+- path: examples/cases/rust_clean.rs
+  language: rust
+  line_count: 20
+  issues: []
+- path: examples/cases/rust_false_positive_clean.rs
+  language: rust
+  line_count: 5
+  issues: []
+- path: examples/cases/rust_panic_unsafe_bad.rs
+  language: rust
+  line_count: 31
+  issues:
+  - file: examples/cases/rust_panic_unsafe_bad.rs
+    line: 3
+    severity: warning
+    rule: rust-unsafe
+    language: rust
+    message: 检测到 unsafe 使用，建议收敛边界并补充 Safety 说明
+  - file: examples/cases/rust_panic_unsafe_bad.rs
+    line: 4
+    severity: warning
+    rule: rust-unsafe
+    language: rust
+    message: 检测到 unsafe 使用，建议收敛边界并补充 Safety 说明
+  - file: examples/cases/rust_panic_unsafe_bad.rs
+    line: 10
+    severity: warning
+    rule: rust-panic-unwrap
+    language: rust
+    message: 检测到 unwrap/expect/panic/todo/unimplemented，建议显式处理错误或限制到测试代码
+  - file: examples/cases/rust_panic_unsafe_bad.rs
+    line: 18
+    severity: warning
+    rule: deep-nesting
+    language: rust
+    message: 嵌套深度超过 4 层，建议重构
+  - file: examples/cases/rust_panic_unsafe_bad.rs
+    line: 19
+    severity: warning
+    rule: rust-panic-unwrap
+    language: rust
+    message: 检测到 unwrap/expect/panic/todo/unimplemented，建议显式处理错误或限制到测试代码
+  - file: examples/cases/rust_panic_unsafe_bad.rs
+    line: 1
+    severity: info
+    rule: rust-allow-attr
+    language: rust
+    message: 检测到 allow 属性，建议确认是否有明确原因和最小作用域
+  - file: examples/cases/rust_panic_unsafe_bad.rs
+    line: 3
+    severity: info
+    rule: rust-unsafe-without-safety-comment
+    language: rust
+    message: unsafe 附近未看到 Safety 说明，建议写清前置条件和调用方责任
+  - file: examples/cases/rust_panic_unsafe_bad.rs
+    line: 4
+    severity: info
+    rule: rust-unsafe-without-safety-comment
+    language: rust
+    message: unsafe 附近未看到 Safety 说明，建议写清前置条件和调用方责任
+  - file: examples/cases/rust_panic_unsafe_bad.rs
+    line: 11
+    severity: info
+    rule: rust-as-cast
+    language: rust
+    message: 检测到 as 转换，建议确认截断、符号位和平台相关行为是否符合预期
+  - file: examples/cases/rust_panic_unsafe_bad.rs
+    line: 12
+    severity: info
+    rule: rust-dbg-macro
+    language: rust
+    message: 检测到 dbg! 调试宏，提交前建议改成日志或移除
+- path: examples/cases/rust_state_transmute_bad.rs
+  language: rust
+  line_count: 16
+  issues:
+  - file: examples/cases/rust_state_transmute_bad.rs
+    line: 9
+    severity: warning
+    rule: rust-transmute
+    language: rust
+    message: 检测到 transmute，建议优先使用安全转换 API 或把 unsafe 边界压到最小
+  - file: examples/cases/rust_state_transmute_bad.rs
+    line: 9
+    severity: warning
+    rule: rust-unsafe
+    language: rust
+    message: 检测到 unsafe 使用，建议收敛边界并补充 Safety 说明
+  - file: examples/cases/rust_state_transmute_bad.rs
+    line: 5
+    severity: info
+    rule: rust-complex-type
+    language: rust
+    message: 检测到 Rc<RefCell> 或 Arc<Mutex> 组合，建议确认共享可变状态边界清晰
+  - file: examples/cases/rust_state_transmute_bad.rs
+    line: 7
+    severity: info
+    rule: rust-clone-noise
+    language: rust
+    message: 检测到 clone/to_owned，建议确认是否真的需要分配或复制所有权
+  - file: examples/cases/rust_state_transmute_bad.rs
+    line: 8
+    severity: info
+    rule: rust-clone-noise
+    language: rust
+    message: 检测到 clone/to_owned，建议确认是否真的需要分配或复制所有权
+  - file: examples/cases/rust_state_transmute_bad.rs
+    line: 9
+    severity: info
+    rule: rust-unsafe-without-safety-comment
+    language: rust
+    message: unsafe 附近未看到 Safety 说明，建议写清前置条件和调用方责任
+  - file: examples/cases/rust_state_transmute_bad.rs
+    line: 11
+    severity: info
+    rule: rust-dbg-macro
+    language: rust
+    message: 检测到 dbg! 调试宏，提交前建议改成日志或移除
+issues:
+- file: examples/cases/c_control_flow_bad.c
+  line: 4
+  severity: error
+  rule: function-brace-newline
+  language: c
+  message: 函数定义的首个左花括号应另起一行
+- file: examples/cases/c_control_flow_bad.c
+  line: 4
+  severity: error
+  rule: void-main-signature
+  language: c
+  message: 建议将 void main() 改为 int main(void)
+- file: examples/cases/c_control_flow_bad.c
+  line: 8
+  severity: error
+  rule: assignment-in-condition
+  language: c
+  message: 条件表达式中疑似误用赋值运算符 =，请确认是否应为 ==
+- file: examples/cases/c_control_flow_bad.c
+  line: 8
+  severity: error
+  rule: control-keyword-space
+  language: c
+  message: if 语句后缺少空格，建议写成 `if (...)`
+- file: examples/cases/c_control_flow_bad.c
+  line: 8
+  severity: error
+  rule: empty-control-statement
+  language: c
+  message: if 语句后不应出现空语句分号
+- file: examples/cases/c_control_flow_bad.c
+  line: 9
+  severity: error
+  rule: equality-as-statement
+  language: c
+  message: 独立语句中出现 ==，疑似将赋值 = 误写为比较 ==
+- file: examples/cases/c_mixed_risk_bad.c
+  line: 5
+  severity: error
+  rule: function-brace-newline
+  language: c
+  message: 函数定义的首个左花括号应另起一行
+- file: examples/cases/c_mixed_risk_bad.c
+  line: 5
+  severity: error
+  rule: void-main-signature
+  language: c
+  message: 建议将 void main() 改为 int main(void)
+- file: examples/cases/c_mixed_risk_bad.c
+  line: 8
+  severity: error
+  rule: assignment-in-condition
+  language: c
+  message: 条件表达式中疑似误用赋值运算符 =，请确认是否应为 ==
+- file: examples/cases/c_mixed_risk_bad.c
+  line: 8
+  severity: error
+  rule: control-keyword-space
+  language: c
+  message: if 语句后缺少空格，建议写成 `if (...)`
+- file: examples/cases/c_mixed_risk_bad.c
+  line: 8
+  severity: error
+  rule: empty-control-statement
+  language: c
+  message: if 语句后不应出现空语句分号
+- file: examples/cases/cpp_raw_namespace_bad.hpp
+  line: 10
+  severity: error
+  rule: assignment-in-condition
+  language: cpp
+  message: 条件表达式中疑似误用赋值运算符 =，请确认是否应为 ==
+- file: examples/cases/cpp_raw_namespace_bad.hpp
+  line: 10
+  severity: error
+  rule: control-keyword-space
+  language: cpp
+  message: if 语句后缺少空格，建议写成 `if (...)`
+- file: examples/cases/cpp_raw_namespace_bad.hpp
+  line: 10
+  severity: error
+  rule: empty-control-statement
+  language: cpp
+  message: if 语句后不应出现空语句分号
+- file: examples/cases/c_control_flow_bad.c
+  line: 2
+  severity: warning
+  rule: unused-include
+  language: c
+  message: 头文件 'math.h' 可能未被使用
+- file: examples/cases/c_control_flow_bad.c
+  line: 5
+  severity: warning
+  rule: unused-variable
+  language: c
+  message: 变量 'unused' 定义后未使用
+- file: examples/cases/c_control_flow_bad.c
+  line: 11
+  severity: warning
+  rule: single-line-for-braces
+  language: c
+  message: 单行 for 循环不应使用花括号
+- file: examples/cases/c_control_flow_bad.c
+  line: 17
+  severity: warning
+  rule: deep-nesting
+  language: c
+  message: 嵌套深度超过 4 层，建议重构
+- file: examples/cases/c_missing_guard.h
+  line: 1
+  severity: warning
+  rule: c-header-guard
+  language: c
+  message: '头文件缺少 #pragma once 或传统 include guard，容易被重复包含'
+- file: examples/cases/c_mixed_risk_bad.c
+  line: 9
+  severity: warning
+  rule: c-dangerous-api
+  language: c
+  message: 检测到危险 C API `strcpy`，建议使用带长度限制或可检查错误的替代方案
+- file: examples/cases/c_mixed_risk_bad.c
+  line: 10
+  severity: warning
+  rule: c-alloc-without-free
+  language: c
+  message: 文件中检测到 malloc/calloc/realloc 但未看到 free，建议检查所有权和释放路径
+- file: examples/cases/c_mixed_risk_bad.c
+  line: 10
+  severity: warning
+  rule: c-unchecked-resource
+  language: c
+  message: 疑似直接调用资源/内存 API 且未保存返回值，建议检查失败路径和释放路径
+- file: examples/cases/c_resource_macro_bad.c
+  line: 5
+  severity: warning
+  rule: c-macro-safety
+  language: c
+  message: 函数式宏包含语句块但未使用 do { ... } while (0) 包裹，调用方容易踩坑
+- file: examples/cases/c_resource_macro_bad.c
+  line: 12
+  severity: warning
+  rule: c-dangerous-api
+  language: c
+  message: 检测到危险 C API `scanf`，建议使用带长度限制或可检查错误的替代方案
+- file: examples/cases/c_resource_macro_bad.c
+  line: 13
+  severity: warning
+  rule: c-dangerous-api
+  language: c
+  message: 检测到危险 C API `strcpy`，建议使用带长度限制或可检查错误的替代方案
+- file: examples/cases/c_resource_macro_bad.c
+  line: 14
+  severity: warning
+  rule: c-alloc-without-free
+  language: c
+  message: 文件中检测到 malloc/calloc/realloc 但未看到 free，建议检查所有权和释放路径
+- file: examples/cases/c_resource_macro_bad.c
+  line: 14
+  severity: warning
+  rule: c-unchecked-resource
+  language: c
+  message: 疑似直接调用资源/内存 API 且未保存返回值，建议检查失败路径和释放路径
+- file: examples/cases/c_resource_macro_bad.c
+  line: 17
+  severity: warning
+  rule: c-goto-usage
+  language: c
+  message: 检测到 goto，建议确认控制流是否可以用早返回、循环状态或小函数表达
+- file: examples/cases/cpp_exceptions_casts_bad.cpp
+  line: 13
+  severity: warning
+  rule: deep-nesting
+  language: cpp
+  message: 嵌套深度超过 4 层，建议重构
+- file: examples/cases/cpp_exceptions_casts_bad.cpp
+  line: 21
+  severity: warning
+  rule: cpp-catch-all
+  language: cpp
+  message: 检测到 catch (...)，建议只捕获明确异常类型并保留错误上下文
+- file: examples/cases/cpp_raw_namespace_bad.hpp
+  line: 3
+  severity: warning
+  rule: cpp-header-using-namespace
+  language: cpp
+  message: 头文件中不应使用 using namespace，容易污染包含方命名空间
+- file: examples/cases/cpp_raw_namespace_bad.hpp
+  line: 7
+  severity: warning
+  rule: cpp-raw-new-delete
+  language: cpp
+  message: 检测到裸 new/delete，建议优先使用 RAII、智能指针或容器
+- file: examples/cases/cpp_raw_namespace_bad.hpp
+  line: 10
+  severity: warning
+  rule: cpp-raw-new-delete
+  language: cpp
+  message: 检测到裸 new/delete，建议优先使用 RAII、智能指针或容器
+- file: examples/cases/cpp_raw_namespace_bad.hpp
+  line: 13
+  severity: warning
+  rule: cpp-raw-new-delete
+  language: cpp
+  message: 检测到裸 new/delete，建议优先使用 RAII、智能指针或容器
+- file: examples/cases/rust_panic_unsafe_bad.rs
+  line: 3
+  severity: warning
+  rule: rust-unsafe
+  language: rust
+  message: 检测到 unsafe 使用，建议收敛边界并补充 Safety 说明
+- file: examples/cases/rust_panic_unsafe_bad.rs
+  line: 4
+  severity: warning
+  rule: rust-unsafe
+  language: rust
+  message: 检测到 unsafe 使用，建议收敛边界并补充 Safety 说明
+- file: examples/cases/rust_panic_unsafe_bad.rs
+  line: 10
+  severity: warning
+  rule: rust-panic-unwrap
+  language: rust
+  message: 检测到 unwrap/expect/panic/todo/unimplemented，建议显式处理错误或限制到测试代码
+- file: examples/cases/rust_panic_unsafe_bad.rs
+  line: 18
+  severity: warning
+  rule: deep-nesting
+  language: rust
+  message: 嵌套深度超过 4 层，建议重构
+- file: examples/cases/rust_panic_unsafe_bad.rs
+  line: 19
+  severity: warning
+  rule: rust-panic-unwrap
+  language: rust
+  message: 检测到 unwrap/expect/panic/todo/unimplemented，建议显式处理错误或限制到测试代码
+- file: examples/cases/rust_state_transmute_bad.rs
+  line: 9
+  severity: warning
+  rule: rust-transmute
+  language: rust
+  message: 检测到 transmute，建议优先使用安全转换 API 或把 unsafe 边界压到最小
+- file: examples/cases/rust_state_transmute_bad.rs
+  line: 9
+  severity: warning
+  rule: rust-unsafe
+  language: rust
+  message: 检测到 unsafe 使用，建议收敛边界并补充 Safety 说明
+- file: examples/cases/cpp_exceptions_casts_bad.cpp
+  line: 5
+  severity: info
+  rule: cpp-null-literal
+  language: cpp
+  message: 检测到 NULL，现代 C++ 建议使用 nullptr 表达空指针
+- file: examples/cases/cpp_exceptions_casts_bad.cpp
+  line: 6
+  severity: info
+  rule: cpp-c-style-cast
+  language: cpp
+  message: 检测到疑似 C 风格强转，建议使用 static_cast/reinterpret_cast/const_cast 表达意图
+- file: examples/cases/cpp_exceptions_casts_bad.cpp
+  line: 14
+  severity: info
+  rule: cpp-std-endl
+  language: cpp
+  message: 检测到 endl，若不需要强制刷新缓冲区，建议使用 '\n'
+- file: examples/cases/cpp_exceptions_casts_bad.cpp
+  line: 22
+  severity: info
+  rule: cpp-std-endl
+  language: cpp
+  message: 检测到 endl，若不需要强制刷新缓冲区，建议使用 '\n'
+- file: examples/cases/cpp_raw_namespace_bad.hpp
+  line: 3
+  severity: info
+  rule: cpp-using-namespace
+  language: cpp
+  message: 检测到 using namespace，建议缩小作用域或使用显式命名空间
+- file: examples/cases/cpp_raw_namespace_bad.hpp
+  line: 8
+  severity: info
+  rule: cpp-c-style-cast
+  language: cpp
+  message: 检测到疑似 C 风格强转，建议使用 static_cast/reinterpret_cast/const_cast 表达意图
+- file: examples/cases/cpp_raw_namespace_bad.hpp
+  line: 12
+  severity: info
+  rule: cpp-std-endl
+  language: cpp
+  message: 检测到 endl，若不需要强制刷新缓冲区，建议使用 '\n'
+- file: examples/cases/rust_panic_unsafe_bad.rs
+  line: 1
+  severity: info
+  rule: rust-allow-attr
+  language: rust
+  message: 检测到 allow 属性，建议确认是否有明确原因和最小作用域
+- file: examples/cases/rust_panic_unsafe_bad.rs
+  line: 3
+  severity: info
+  rule: rust-unsafe-without-safety-comment
+  language: rust
+  message: unsafe 附近未看到 Safety 说明，建议写清前置条件和调用方责任
+- file: examples/cases/rust_panic_unsafe_bad.rs
+  line: 4
+  severity: info
+  rule: rust-unsafe-without-safety-comment
+  language: rust
+  message: unsafe 附近未看到 Safety 说明，建议写清前置条件和调用方责任
+- file: examples/cases/rust_panic_unsafe_bad.rs
+  line: 11
+  severity: info
+  rule: rust-as-cast
+  language: rust
+  message: 检测到 as 转换，建议确认截断、符号位和平台相关行为是否符合预期
+- file: examples/cases/rust_panic_unsafe_bad.rs
+  line: 12
+  severity: info
+  rule: rust-dbg-macro
+  language: rust
+  message: 检测到 dbg! 调试宏，提交前建议改成日志或移除
+- file: examples/cases/rust_state_transmute_bad.rs
+  line: 5
+  severity: info
+  rule: rust-complex-type
+  language: rust
+  message: 检测到 Rc<RefCell> 或 Arc<Mutex> 组合，建议确认共享可变状态边界清晰
+- file: examples/cases/rust_state_transmute_bad.rs
+  line: 7
+  severity: info
+  rule: rust-clone-noise
+  language: rust
+  message: 检测到 clone/to_owned，建议确认是否真的需要分配或复制所有权
+- file: examples/cases/rust_state_transmute_bad.rs
+  line: 8
+  severity: info
+  rule: rust-clone-noise
+  language: rust
+  message: 检测到 clone/to_owned，建议确认是否真的需要分配或复制所有权
+- file: examples/cases/rust_state_transmute_bad.rs
+  line: 9
+  severity: info
+  rule: rust-unsafe-without-safety-comment
+  language: rust
+  message: unsafe 附近未看到 Safety 说明，建议写清前置条件和调用方责任
+- file: examples/cases/rust_state_transmute_bad.rs
+  line: 11
+  severity: info
+  rule: rust-dbg-macro
+  language: rust
+  message: 检测到 dbg! 调试宏，提交前建议改成日志或移除
+summary:
+  errors: 14
+  warnings: 27
+  infos: 17
+  files: 13
+  total_lines: 219
+  score: 0
